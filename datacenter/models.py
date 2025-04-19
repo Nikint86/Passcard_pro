@@ -12,6 +12,10 @@ class Passcard(models.Model):
             return self.owner_name
         return f'{self.owner_name} (inactive)'
 
+    def get_duration(self):
+        duration = self.get_duration_timedelta()
+        return duration.total_seconds()
+
 
 class Visit(models.Model):
     created_at = models.DateTimeField(auto_now=True)
