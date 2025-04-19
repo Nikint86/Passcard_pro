@@ -9,8 +9,7 @@ def format_duration(duration):
 
 
 def is_visit_long(visit, minutes=60):
-    if visit.leaved_at is None:
-        duration = localtime() - localtime(visit.entered_at)
-    else:
-        duration = localtime(visit.leaved_at) - localtime(visit.entered_at)
+    entered_at = localtime(visit.entered_at)
+    leaved_at = localtime(visit.leaved_at) if visit.leaved_at else localtime()
+    duration = leaved_at - entered_at
     return duration.total_seconds() > minutes * 60
