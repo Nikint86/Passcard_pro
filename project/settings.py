@@ -4,28 +4,28 @@ import os
 
 load_dotenv()
 
-engine = os.environ["ENGINE"]
-host = os.environ["HOST"]
-port = os.environ["PORT"]
-name = os.environ["NAME"]
-user = os.environ["USER"]
-password = os.environ["PASSWORD"]
-secret_key = os.environ["SECRET_KEY"]
+DB_ENGINE = os.environ["ENGINE"]
+DB_HOST = os.environ["HOST"]
+DB_PORT = os.environ["PORT"]
+DB_NAME = os.environ["NAME"]
+DB_USER = os.environ["USER"]
+DB_PASSWORD = os.environ["PASSWORD"]
+DB_SECRET_KEY = os.environ["SECRET_KEY"]
 
 DATABASES = {
     'default': {
-        'ENGINE': engine,
-        'HOST': host,
-        'PORT': port,
-        'NAME': name,
-        'USER': user,
-        'PASSWORD': password,
+        'ENGINE': DB_ENGINE,
+        'HOST': DB_HOST,
+        'PORT': DB_PORT,
+        'NAME': DB_NAME,
+        'USER': DB_USER,
+        'PASSWORD': DB_PASSWORD,
     }
 }
 
 INSTALLED_APPS = ['datacenter']
 
-SECRET_KEY = secret_key
+SECRET_KEY = DB_SECRET_KEY
 
 DEBUG = False
 
