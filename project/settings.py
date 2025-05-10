@@ -11,6 +11,7 @@ DB_NAME = os.environ["NAME"]
 DB_USER = os.environ["USER"]
 DB_PASSWORD = os.environ["PASSWORD"]
 DB_SECRET_KEY = os.environ["SECRET_KEY"]
+DB_DEBUG = os.environ["DB_DEBUG"]
 
 DATABASES = {
     'default': {
@@ -27,11 +28,11 @@ INSTALLED_APPS = ['datacenter']
 
 SECRET_KEY = DB_SECRET_KEY
 
-DEBUG = False
+DEBUG = DB_DEBUG
 
 ROOT_URLCONF = 'project.urls'
 
-ALLOWED_HOSTS = ['checkpoint.devman.org']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
