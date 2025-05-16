@@ -11,13 +11,8 @@ def passcard_info_view(request, passcode):
     this_passcard_visits = []
     for visit in visits:
         entered_at = localtime(visit.entered_at)
-
-        if visit.leaved_at:
-            duration = localtime(visit.leaved_at) - entered_at
-            leaved_at = localtime(visit.leaved_at)
-        else:
-            duration = localtime() - entered_at
-            leaved_at = 'ещё в хранилище'
+        leaved_at = localtime(visit.leaved_at) if visit.leaved_at else 'ещё в хранилище'
+        duration = (localtime(visit.leaved_at) if visit.leaved_at else localtime()) - entered_at
 
         this_passcard_visits.append({
             'entered_at': entered_at,
