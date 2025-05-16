@@ -35,6 +35,4 @@ class Visit(models.Model):
         )
 
     def get_duration(self):
-        if self.leaved_at is None:
-            return timedelta(0)
-        return self.leaved_at - self.entered_at
+        return self.leaved_at - self.entered_at if self.leaved_at else timedelta(0)
